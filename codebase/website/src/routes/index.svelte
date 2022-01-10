@@ -83,7 +83,7 @@ async function createBatch() {
   if (balance < 10) { alert('not enough balance'); return; }
 
   order_progress = 1;
-  const numEfx = 5
+  const numEfx = 10
 
   const batches = await client.force.getCampaignBatches(gitstarCampaign);
   const batchId = batches.length + 1
