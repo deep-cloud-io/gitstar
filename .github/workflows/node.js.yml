@@ -32,6 +32,7 @@ jobs:
         cache-dependency-path: codebase/website/package-lock.json
     - run: npm ci
     - run: npm run build
+    - run: touch build/_app/.nojekyll
     - run: mv build ../../docs
     - name: Deploy 🚀
       uses: JamesIves/github-pages-deploy-action@v4.2.2
