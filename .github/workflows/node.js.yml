@@ -33,3 +33,4 @@ jobs:
         cache-dependency-path: codebase/website/package-lock.json
     - run: npm ci
     - run: npm run build
+    - run: mv build ../../docs
