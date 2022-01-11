@@ -17,6 +17,7 @@
   .topic > section { margin-top: 1.5rem; }
   .relative { position: relative; }
   .close-icon { position: absolute; top: 5px; right: 5px; }
+button.bottom-right { position: absolute; bottom: 10px; right: 10px; }
 
   .message-list { display: flex;  flex-direction: column; }
   .message-list > .message { display: flex; }
@@ -77,6 +78,10 @@ async function makeVtransferSig(numEfx) {
   return vaccSig
 }
 
+function orderAgain() {
+    order_progress = null;
+}
+
 async function createBatch() {
   if (!account) { alert ('login first'); return; }
   if (!num_stars || !repo_name) { alert('need more info!'); return; }
@@ -134,8 +139,6 @@ async function createBatch() {
   const newBatch = await client.force.getCampaignBatches(gitstarCampaign)
   const batchid = newBatch.pop().batch_id
   order_progress = 6;
-
-  alert('batch is '+batchid);
 }
 </script>
 
@@ -216,13 +219,14 @@ async function createBatch() {
             {:else}
             <progress class="nes-progress {order_progress == 6 ? 'is-pattern' : 'is-primary'}" value={order_progress} max="6"></progress>
             {/if}
-
-            {#if order_progress == 6}
-            <a href="#" class="nes-badge">
-              <span class="is-success">Order success. Stars on their way!</span>
-            </a>
-            {/if}
           </div>
+
+          {#if order_progress == 6}
+          <a href="#" class="nes-badge">
+            <span class="is-success">Success</span>
+          </a>
+          <button on:click={orderAgain} class="nes-btn bottom-right">Order again</button>
+          {/if}
         </div>
       </section>
     </section>
