@@ -26,6 +26,7 @@ GitStar a pure Effect Network dApp with some unique features:
 - The contract any Effect account to order stars (requester private key not required!)
 - Progress bar that indicates every step needed to publish a task
 - Useful Effect template that uses Github API
+- Has an embedded revenue model, as the smart contract collects a fee
 
 GitStar maintains its own smart contract in combination with the Effect qualification system to track credible workers with real Github account (GitStar is not a click farm!).
 
